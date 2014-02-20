@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @user.password %>
+</p>
+
+<p>
+  <strong>Service:</strong>
+  <%= @user.service_id %>
+</p>
+
+<p>
+  <strong>Isadmin:</strong>
+  <%= @user.isadmin %>
+</p>
+
+<p>
+  <strong>Activecard:</strong>
+  <%= @user.activecard %>
+</p>
+
+<p>
+  <strong>Total Hours:</strong>
+  <%= @user.t_hours %>
+</p>
+
+<p>
+  <strong>Weekly Hours:</strong>
+  <%= @user.week_hours %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

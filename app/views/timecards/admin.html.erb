@@ -1,0 +1,25 @@
+<section>
+<% if user_signed_in? && current_user.isadmin == true%>
+<table>
+	<tr>
+		<th> Name </th>
+		<th> Email </th>
+		<th> Weekly Hours </th>
+		<th> Total Hours </th>
+	</tr>
+	<% @users.each do |t| %>
+	<tr>
+		<td><%= t.name %></td>
+		<td><%= t.email %></td>
+		<td><%= t.week_hours %></td>
+		<td><%= t.t_hours %></td>
+        <td><%= link_to 'Show', t %></td>
+        <td><%= link_to 'Edit', edit_user_path(t) %></td>
+        <td><%= link_to 'Destroy', t, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	</tr>
+	<%end%>
+</table>
+<%else%>
+	<script type="text/javascript">window.location.href="/users/sign_in"</script>
+<%end%>
+</section>

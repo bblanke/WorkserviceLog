@@ -1,0 +1,23 @@
+<section id='account'>
+<% if user_signed_in?%>
+<%= form_for(@card) do |f|%>
+<%= button_tag(type: 'submit', class: "btn btn-primary", id: "punch") do %>
+
+	<span id="hours"><%=current_user.week_hours%> <span>Hours this week</span></span>
+	<% if current_user.activecard?%>
+		<span id="punchOut">punch out</span>	
+	<%else%>
+		<span id="punchIn">punch in</span>
+	<%end%>
+	<% end %>
+	<%end%>
+	
+	<div id="canvas" data-hours="<%= current_user.week_hours %>"></div>
+	<div id="shadow"></div>
+	<%= link_to "&larr;".html_safe, destroy_user_session_path, method: :delete, :id => 'l_out'%>
+	<p id='p_out'>Peace out</p>
+	<div id="l_shadow"></div>
+<%else%>
+	<script type="text/javascript">window.location.href="/users/sign_in"</script>
+<%end%>
+</section>

@@ -1,0 +1,31 @@
+<h1>Listing timecards</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Timein</th>
+      <th>Timeout</th>
+      <th>User</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @timecards.each do |timecard| %>
+      <tr>
+        <td><%= timecard.timein %></td>
+        <td><%= timecard.timeout %></td>
+        <td><%= timecard.user_id %></td>
+        <td><%= link_to 'Show', timecard %></td>
+        <td><%= link_to 'Edit', edit_timecard_path(timecard) %></td>
+        <td><%= link_to 'Destroy', timecard, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Timecard', new_timecard_path %>
